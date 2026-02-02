@@ -53,7 +53,7 @@ static void usage(void)
 	printf("   -h : show usage\n");
 	printf("   -f [file name]      : send file name\n");
 	printf("   -n [file name]      : nsih file name\n");
-	// printf("   -m [mode]           : 0 = No header, 1: NSIH Header\n");
+	printf("   -m [mode]           : 0 = No header, 1: NSIH Header\n");
 	printf("   -b [file name]      : second boot file name(NXP4330 or higher)\n");
 	printf("   -t [processor type] : select target processor type\n");
 	printf("      ( type : nxp2102/nxp3200/nxp4330/nxp5430/slsiap )\n" );
@@ -92,8 +92,8 @@ int main(int argc, char **argv)
 	printf("\n");
 
 	while (1) {
-		// c = getopt(argc, argv, "a:j:b:n:f:t:m:h");
-		c = getopt(argc, argv, "a:j:b:n:f:t:h");
+		c = getopt(argc, argv, "a:j:b:n:f:t:m:h");
+		// c = getopt(argc, argv, "a:j:b:n:f:t:h");
 
 		if (c == -1)
 			break;
@@ -123,9 +123,9 @@ int main(int argc, char **argv)
 			processor_type = strdup(optarg);
 			break;
 
-		// case 'm':
-		// 	header_mode = atoi(optarg)? 1:0;
-		// 	break;
+		case 'm':
+		 	header_mode = atoi(optarg)? 1:0;
+		 	break;
 
 		case 'h':
 			usage();
